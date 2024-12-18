@@ -11,7 +11,7 @@ os.environ['FLASK_DEBUG'] = '1'         # Ativa debug
 # Rota de teste para verificar se o servidor Flask está funcionando
 @app.route('/')
 def home():
-    return jsonify({'message': 'Servidor Flask está funcionando corretamente!'})
+    return jsonify({'message': 'API hospedada no Heroku com sucesso!'})
 
 # Rota para consultar documentos no SEI
 @app.route('/consultar_documento', methods=['GET'])
@@ -54,6 +54,6 @@ def assinar_documento():
     except Exception as e:
         return jsonify({'error': 'Erro no processamento da assinatura', 'details': str(e)}), 500
 
-# Iniciar servidor Flask
+# Iniciar servidor Flask com host configurado para 0.0.0.0 e porta 10000
 if __name__ == '__main__':
-    app.run(debug=True, port=5050)
+    app.run(host='0.0.0.0', port=10000, debug=True)
