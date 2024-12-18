@@ -1,0 +1,14 @@
+[build]
+  functions = "api"  # Pasta onde as funções serverless (código Python) estarão
+  publish = "public"  # Pasta onde arquivos de frontend (se houver) estarão
+
+[[redirects]]
+  from = "/consultar_documento"
+  to = "/api/app.py/consultar_documento"
+  status = 200
+
+[[redirects]]
+  from = "/assinar_documento"
+  to = "/api/app.py/assinar_documento"
+  status = 200
+ 
